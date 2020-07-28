@@ -34,6 +34,9 @@ function App() {
       <Carousel category={categ[4]} />
 
       <Carousel category={categ[5]} />
+
+      <Footer/>
+
     </div>
   );
 }
