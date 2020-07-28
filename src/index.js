@@ -1,11 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import "./index.css";
+import Home from "./pages/Home";
+import CadastroVideo from "./pages/cadastro/Video";
+import CadastroCategoria from "./pages/cadastro/Categoria";
+
+
+function Page404(){
+  return <h1>PÁGINA 404</h1>
+}
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  <BrowserRouter>
+    <Switch>
+      <Route path="/" component={Home} exact />
+      <Route path="/cadastro/video" component={CadastroVideo} />
+      <Route path="/cadastro/categoria" component={CadastroCategoria} />
+      {/* ROUTE 404 */}
+      <Route component={Page404} />
+    </Switch>
+  </BrowserRouter>,
+  document.getElementById("root")
+  // <React.StrictMode>
+  //   <App />
+  // </React.StrictMode>,
 );

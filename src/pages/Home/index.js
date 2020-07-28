@@ -1,19 +1,21 @@
 import React from "react";
 
-import dadosIniciais from "./data/dados_iniciais.json";
+import dadosIniciais from "../../data/dados_iniciais.json";
 
-import Menu from "./components/Menu";
-import BannerMain from "./components/BannerMain";
-import Carousel from "./components/Carousel";
-import Footer from "./components/Footer";
+import Menu from "../../components/Menu";
+import BannerMain from "../../components/BannerMain";
+import Carousel from "../../components/Carousel";
+import Footer from "../../components/Footer";
+import PageDefault from "../../components/PageDefault";
 
-function App() {
+function Home() {
   const destaque = dadosIniciais.categorias[0].videos[0];
   const categ = dadosIniciais.categorias;
 
   return (
     <div style={{background: "#141414"}}>
-      <Menu />
+
+      <Menu/>
 
       <BannerMain
         videoTitle={destaque.titulo}
@@ -34,11 +36,8 @@ function App() {
       <Carousel category={categ[4]} />
 
       <Carousel category={categ[5]} />
-
-      <Footer/>
-
     </div>
   );
 }
 
-export default App;
+export default Home;

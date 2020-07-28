@@ -24,7 +24,13 @@ a {
   color: inherit;
 }
 
-::-webkit-scrollbar {
+#root {
+  min-height: calc(100vh - var(--bodyPaddingTop));
+  display: flex;
+  flex-direction: column;
+}
+
+/* ::-webkit-scrollbar {
   -webkit-appearance: none;
 }
 
@@ -45,4 +51,4 @@ a {
 ::-webkit-scrollbar-track {
   border-radius: 0px;
   background-color: transparent;
-}
+} */
