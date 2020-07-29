@@ -11,9 +11,9 @@ import Page404 from "./pages/PageNotFound";
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
-      <Route path="/cadastro/video" component={CadastroVideo} exact />
-      <Route path="/cadastro/categoria" component={CadastroCategoria} exact />
       <Route path="/" component={Home} exact />
+      <Route path="/cadastro/video" component={CadastroVideo} />
+      <Route path="/cadastro/categoria" component={CadastroCategoria} />
       <Route component={Page404} />
     </Switch>
   </BrowserRouter>,
