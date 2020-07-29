@@ -12,10 +12,10 @@ function CadastroCategoria() {
       <form>
         <label>Nome da Categoria:</label>
         <input type="text" />
-        <button> Cadastrar</button>
+        <button>Cadastrar</button>
       </form>
 
-      <Link to="/">Ir para Home</Link>
+      {/* <Link to="/">Ir para Home</Link> */}
     </PageDefault>
   );
 }

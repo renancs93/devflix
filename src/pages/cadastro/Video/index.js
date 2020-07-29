@@ -7,9 +7,9 @@ import { Link } from "react-router-dom";
 function CadastroVideo() {
   return( 
     <PageDefault>
-        <h1>Cadastro Video</h1>
+        <h1>Cadastro de Video</h1>
         <Link to="/cadastro/categoria">
-            Cadastrar Categoria
+            Cadastro de Categoria
         </Link>
     </PageDefault>
   )
