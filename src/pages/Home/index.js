@@ -5,8 +5,8 @@ import dadosIniciais from "../../data/dados_iniciais.json";
 import Menu from "../../components/Menu";
 import BannerMain from "../../components/BannerMain";
 import Carousel from "../../components/Carousel";
-import Footer from "../../components/Footer";
-import PageDefault from "../../components/PageDefault";
+// import Footer from "../../components/Footer";
+// import PageDefault from "../../components/PageDefault";
 
 function Home() {
   const destaque = dadosIniciais.categorias[0].videos[0];

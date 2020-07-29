@@ -5,14 +5,19 @@ import { Link } from "react-router-dom";
 // import { Container } from './styles';
 
 function CadastroCategoria() {
-  return( 
+  return (
     <PageDefault>
-        <h1>Cadastro de Categoria</h1>
-        <Link to="/">
-            Ir para Home
-        </Link>
+      <h1>Cadastro de Categoria</h1>
+
+      <form>
+        <label>Nome da Categoria:</label>
+        <input type="text" />
+        <button> Cadastrar</button>
+      </form>
+
+      <Link to="/">Ir para Home</Link>
     </PageDefault>
-  )
+  );
 }
 
 export default CadastroCategoria;

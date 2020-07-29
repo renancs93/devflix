@@ -17,12 +17,8 @@ ReactDOM.render(
       <Route path="/" component={Home} exact />
       <Route path="/cadastro/video" component={CadastroVideo} />
       <Route path="/cadastro/categoria" component={CadastroCategoria} />
-      {/* ROUTE 404 */}
       <Route component={Page404} />
     </Switch>
   </BrowserRouter>,
   document.getElementById("root")
-  // <React.StrictMode>
-  //   <App />
-  // </React.StrictMode>,
 );
