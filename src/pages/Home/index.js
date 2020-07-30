@@ -5,17 +5,15 @@ import dadosIniciais from "../../data/dados_iniciais.json";
 import Menu from "../../components/Menu";
 import BannerMain from "../../components/BannerMain";
 import Carousel from "../../components/Carousel";
-// import Footer from "../../components/Footer";
-// import PageDefault from "../../components/PageDefault";
+import Footer from "../../components/Footer";
 
 function Home() {
   const destaque = dadosIniciais.categorias[0].videos[0];
   const categ = dadosIniciais.categorias;
 
   return (
-    <div style={{background: "#141414"}}>
-
-      <Menu/>
+    <div style={{ background: "#141414" }}>
+      <Menu />
 
       <BannerMain
         videoTitle={destaque.titulo}
@@ -26,16 +24,13 @@ function Home() {
       />
 
       <Carousel ignoreFirstVideo category={categ[0]} />
-
       <Carousel category={categ[1]} />
-
       <Carousel category={categ[2]} />
-
       <Carousel category={categ[3]} />
-
       <Carousel category={categ[4]} />
-
       <Carousel category={categ[5]} />
+
+      <Footer />
     </div>
   );
 }
