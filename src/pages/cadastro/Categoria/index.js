@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
@@ -15,8 +15,6 @@ function CadastroCategoria() {
   };
 
   const [categorias, setCategorias] = useState([]);
-
-  // Definição dos estados
   const [values, setValues] = useState(valoresIniciais);
 
   // Adiciona o novo item na lista
@@ -34,9 +32,36 @@ function CadastroCategoria() {
     setValue(
       // getAttribute('name'),
       info.target.getAttribute('name'),
-      value,
+      value
     );
   }
+
+  // Aciona determminada função quando determinada ação ocorre
+  useEffect(() => {
+    const URL = 'http://localhost:8080/categorias';
+    fetch(URL).then(async (response) => {
+      const itens = await response.json();
+      setCategorias([...itens]);
+    });
+
+    // setTimeout(() => {
+    //   setCategorias([
+    //     {
+    //       id: 1,
+    //       nome: 'Front-end',
+    //       descricao: 'Categoria de Front-end',
+    //       cor: '#cbd1ff',
+    //     },
+    //     {
+    //       id: 2,
+    //       nome: 'Back-end',
+    //       descricao: 'Categoria de Back-end',
+    //       cor: '#cbd1ff',
+    //     },
+    //   ]);
+    // }, 3000);
+    
+  }, []);
 
   return (
     <PageDefault>
@@ -78,6 +103,8 @@ function CadastroCategoria() {
         />
 
         <Button>Cadastrar</Button>
+
+        {categorias.length === 0 && <div>Carregando...</div>}
 
         <ul>
           {categorias.map((categoria) => (
