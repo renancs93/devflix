@@ -3,64 +3,33 @@ import { Link } from 'react-router-dom';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
+import useForm from '../../../hooks/useForm';
 
-// import { Container } from './styles';
+import categoriasRepository from '../../../repositories/categorias';
 
 function CadastroCategoria() {
   // Dados padroes
   const valoresIniciais = {
-    nome: '',
+    titulo: '',
     descricao: '',
     cor: '#000000',
   };
 
+  // Chamando o CustomHook
+  const { values, handleChange, clearForm } = useForm(valoresIniciais);
   const [categorias, setCategorias] = useState([]);
-  const [values, setValues] = useState(valoresIniciais);
-
-  // Adiciona o novo item na lista
-  function setValue(chave, valor) {
-    setValues({
-      ...values,
-      [chave]: valor, // nome: 'valor'
-    });
-  }
-
-  // Funcao de alterações nos inputs
-  function handleChange(info) {
-    const { value } = info.target;
-
-    setValue(
-      // getAttribute('name'),
-      info.target.getAttribute('name'),
-      value
-    );
-  }
 
   // Aciona determminada função quando determinada ação ocorre
   useEffect(() => {
-    const URL = 'http://localhost:8080/categorias';
-    fetch(URL).then(async (response) => {
-      const itens = await response.json();
-      setCategorias([...itens]);
-    });
-
-    // setTimeout(() => {
-    //   setCategorias([
-    //     {
-    //       id: 1,
-    //       nome: 'Front-end',
-    //       descricao: 'Categoria de Front-end',
-    //       cor: '#cbd1ff',
-    //     },
-    //     {
-    //       id: 2,
-    //       nome: 'Back-end',
-    //       descricao: 'Categoria de Back-end',
-    //       cor: '#cbd1ff',
-    //     },
-    //   ]);
-    // }, 3000);
-    
+    categoriasRepository
+      .getAll()
+      .then((categ) => {
+        //console.log(categ);
+        setCategorias(categ);
+      })
+      .catch((err) => {
+        console.log(err.Message);
+      });
   }, []);
 
   return (
@@ -75,15 +44,16 @@ function CadastroCategoria() {
           e.preventDefault();
           // Salva na lista a nova categoria
           setCategorias([...categorias, values]);
+
           // Reseta o form
-          setValues(valoresIniciais);
+          clearForm();
         }}
       >
         <FormField
           label="Nome da Categoria"
           type="text"
-          name="nome"
-          value={values.nome}
+          name="titulo"
+          value={values.titulo}
           onChange={handleChange}
         />
 
@@ -108,7 +78,7 @@ function CadastroCategoria() {
 
         <ul>
           {categorias.map((categoria) => (
-            <li key={`${categoria.nome}`}>{categoria.nome}</li>
+            <li key={`${categoria.titulo}`}>{categoria.titulo}</li>
           ))}
         </ul>
       </form>
