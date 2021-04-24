@@ -15,11 +15,11 @@ function Home() {
     categoriasRepository
       .getAllWithVideos()
       .then((categoriasComVideos) => {
-        console.log(categoriasComVideos);
+        // console.log(categoriasComVideos);
         setDadosIniciais(categoriasComVideos);
       })
       .catch((err) => {
-        console.log(err.Message);
+        // console.log(err.Message);
       });
   }, []);
 
